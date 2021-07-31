@@ -1,5 +1,13 @@
-;; (use-package color-theme-sanityinc-tomorrow
-;;   :config
-;;   (color-theme-sanityinc-tomorrow-night))
+;;; theme.el --- Summary -*- lexical-binding: t -*-
+;;
+;;; Commentary:
+;;
+;; Color theme.
+;;
+;;; Code:
+(use-package color-theme-sanityinc-tomorrow
+   :config
+   (color-theme-sanityinc-tomorrow-night))
 
- (provide 'theme)
+(provide 'theme)
+;;; theme.el ends here

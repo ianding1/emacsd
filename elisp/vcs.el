@@ -1,3 +1,10 @@
+;;; vcs.el --- Summary -*- lexical-binding: t; -*-
+;;
+;;; Commentary:
+;;
+;; Magit, git diff status tools
+;;
+;;; Code:
 (use-package magit
   :config
   (setq magit-completing-read-function 'ivy-completing-read)
@@ -12,4 +19,9 @@
   ("C-x g r" . magit-rebase-interactive))
 (use-package magit-popup)
 
+(use-package diff-hl
+  :config
+  (global-diff-hl-mode))
+
 (provide 'vcs)
+;;; vcs.el ends here
