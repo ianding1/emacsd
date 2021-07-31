@@ -9,3 +9,14 @@
 
 # Undo-tree save-files
 *.~undo-tree
+
+# Elpa package cache
+elpa/
+
+# Temporary or local files
+custom.el
+history
+ido.last
+places
+projectile-bookmarks.eld
+transient/
