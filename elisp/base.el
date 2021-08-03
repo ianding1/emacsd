@@ -102,11 +102,6 @@
 
 (use-package all-the-icons)
 
-(use-package all-the-icons-dired
-  :after all-the-icons
-  :diminish all-the-icons-dired-mode
-  :hook (dired-mode . all-the-icons-dired-mode))
-
 (defvar ianding1/custom-file
   (expand-file-name "custom.el" user-emacs-directory))
 

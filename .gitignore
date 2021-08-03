@@ -20,3 +20,14 @@ ido.last
 places
 projectile-bookmarks.eld
 transient/
+
+# LSP caches
+.cache
+.lsp-session-v1
+.dap-breakpoints
+
+# LSP workspace
+workspace/
+
+# lsp-java caches
+eclipse.jdt.ls/

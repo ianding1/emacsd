@@ -17,7 +17,16 @@
          (lsp-mode . lsp-enable-which-key-integration))
   :commands lsp)
 
-(use-package lsp-ui :commands lsp-ui-mode)
+(use-package lsp-ui
+  :commands lsp-ui-mode
+  :config
+  ;; Disable sideline diagnostics and code actions since they are kind of
+  ;; distracting.
+  (setq lsp-ui-sideline-show-diagnostics nil
+        lsp-ui-sideline-show-hover nil
+        lsp-ui-sideline-show-code-actions nil
+        lsp-ui-doc-show-with-cursor nil))
+
 (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
 ;; (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
 
@@ -35,6 +44,24 @@
   ;; the submode. But as Vue SFC is submodes everywhere, this looks pretty
   ;; bad.
   (setq mmm-submode-decoration-level 0))
+
+
+(defvar ianding1/lombok-jar-path
+  (expand-file-name (concat user-emacs-directory ".cache/lombok.jar"))
+  "The lombok jar file path.")
+
+(use-package lsp-java
+  :hook
+  ((java-mode . lsp))
+  :config
+  (setq lsp-java-vmargs
+        (list
+         "-noverify"
+         "-Xmx1G"
+         "-XX:+UseG1GC"
+         "-XX:+UseStringDeduplication"
+         (concat "-javaagent:" ianding1/lombok-jar-path))))
+
 
 (provide 'lang)
 ;;; lang.el ends here
