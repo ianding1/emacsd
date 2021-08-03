@@ -1,11 +1,17 @@
+;;; workspace.el --- Summary -*- lexical-binding: t; -*-
+;;
+;;; Commentary:
+;; Projectile, treemacs
+;;
+;;; Code:
 (use-package projectile
   :diminish
   projectile-mode
   :config
   (setq projectile-completion-system 'ivy)
-  (projectile-mode t)
+  (projectile-mode +1)
   :bind-keymap
-  ("C-c C-p" . projectile-command-map)
+  ("s-p" . projectile-command-map)
   :init
   (setq projectile-switch-project-action #'projectile-dired))
 
@@ -41,3 +47,4 @@
   :after (treemacs magit))
 
 (provide 'workspace)
+;;; workspace.el ends here
