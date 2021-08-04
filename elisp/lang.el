@@ -4,6 +4,10 @@
 ;; Language servers, syntax checkers, code completion
 ;;
 ;;; Code:
+
+;; Disable eldoc mode globally.
+(global-eldoc-mode -1)
+
 (use-package flycheck
   :init
   (global-flycheck-mode)
@@ -14,8 +18,11 @@
   :init
   (setq lsp-keymap-prefix "C-c l")
   :hook ((vue-mode . lsp)
+         (typescript-mode . lsp)
          (lsp-mode . lsp-enable-which-key-integration))
-  :commands lsp)
+  :commands lsp
+  :config
+  (add-to-list 'lsp-file-watch-ignored-directories "[/\\\\]build\\'"))
 
 (use-package lsp-ui
   :commands lsp-ui-mode
@@ -45,6 +52,12 @@
   ;; bad.
   (setq mmm-submode-decoration-level 0))
 
+(use-package typescript-mode)
+
+(use-package prettier
+  :hook
+  (typescript-mode . prettier-mode)
+  (vue-mode . prettier-mode))
 
 (defvar ianding1/lombok-jar-path
   (expand-file-name (concat user-emacs-directory ".cache/lombok.jar"))

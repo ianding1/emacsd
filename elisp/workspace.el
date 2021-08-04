@@ -33,8 +33,9 @@
   ;; The default behavior to open a file is to double-click. This is what most UI does
   ;; but unfortunately it's inconsistent for macOS.
   (with-eval-after-load 'treemacs
-    (define-key treemacs-mode-map [mouse-1] #'treemacs-single-click-expand-action)))
-
+    (define-key treemacs-mode-map [mouse-1] #'treemacs-single-click-expand-action))
+  ;; Disable follow mode. Follow mode will cause the treemacs buffer to refresh.
+  (treemacs-follow-mode -1))
 
 (use-package treemacs-projectile
   :after (treemacs projectile))
